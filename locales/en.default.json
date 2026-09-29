@@ -97,7 +97,7 @@
     "checkout": "Checkout",
     "empty": "Your cart is empty",
     "continue_shopping": "Continue Shopping",
-    "complete_setup": "Complete your setup",
+    "complete_setup": "Finish the room",
     "decrease": "Decrease quantity",
     "increase": "Increase quantity",
     "shipping_note": "Shipping and taxes calculated at checkout.",
@@ -128,7 +128,7 @@
     "secure_checkout": "Secure Checkout",
     "free_shipping": "Free Shipping $99+",
     "easy_returns": "Easy Returns",
-    "warranty_included": "Warranty Included",
+    "warranty_included": "Care included",
     "rights": "All rights reserved."
   },
   "contact": {
@@ -152,7 +152,7 @@
   "bizmis": {
     "panel": {
       "title": "Meet your voice store clerk",
-      "examples": "Looking for a laptop with great battery life.\nThese earbuds seem the same. Which is better for running?\nDoes this fast-charge an iPhone 15?\nWhere's my order? Tracking hasn't updated in days.\nThe charger came with the wrong plug type. Can I swap it?\nDo you ship to Spain, and is the warranty valid there?",
+      "examples": "Looking for a linen sofa that works in a small living room.\nThese two oak tables look similar. Which one seats six?\nIs this rug safe on heated floors?\nWhere's my order? Tracking hasn't updated in days.\nThe lamp arrived with a cracked shade. Can I swap it?\nDo you ship to Spain, and is this finish indoor only?",
       "example_tags": "Boost sales · Product discovery\nBoost sales · Product comparison\nBoost sales · Technical guidance\nSave support hours · Order status\nSave support hours · Returns guidance\nSave support hours · Pre-purchase FAQs",
       "install": "Install Bizmis",
       "just_say": "Just say",

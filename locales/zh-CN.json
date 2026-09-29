@@ -83,7 +83,7 @@
     "checkout": "结账",
     "empty": "购物车是空的",
     "continue_shopping": "继续购物",
-    "complete_setup": "完成设置",
+    "complete_setup": "把房间配齐",
     "decrease": "减少数量",
     "increase": "增加数量",
     "shipping_note": "运费和税费将在结账时计算。"
@@ -110,7 +110,7 @@
     "secure_checkout": "安全结账",
     "free_shipping": "满99元免运费",
     "easy_returns": "轻松退换",
-    "warranty_included": "含保修",
+    "warranty_included": "含养护说明",
     "rights": "版权所有。"
   },
   "support": {
@@ -124,7 +124,7 @@
   "bizmis": {
     "panel": {
       "title": "认识你的语音导购",
-      "examples": "想找一台能用一整天的笔记本。\n这两款耳机看起来差不多，哪款更适合跑步？\n这个支持 iPhone 15 快充吗？\n我的订单到哪了？物流好几天没更新。\n充电器插头不对，可以换吗？\n你们发西班牙吗？保修在那里也有效吗？",
+      "examples": "想找一张适合小客厅的亚麻沙发。\n这两张橡木桌看起来差不多，哪张能坐六个人？\n这张地毯能铺在地暖上吗？\n我的订单到哪了？物流好几天没更新。\n灯罩送来时裂了，可以换吗？\n你们发西班牙吗？这个饰面是只能放室内吗？",
       "example_tags": "提升销量 · 商品发现\n提升销量 · 商品对比\n提升销量 · 专业指导\n节省客服时间 · 订单状态\n节省客服时间 · 退换指导\n节省客服时间 · 售前常见问题",
       "install": "安装 Bizmis",
       "just_say": "只需说",

@@ -1,5 +1,5 @@
 /* ============================================================
-   CRIMSON INDEX — Mock legacy support chat (video prop)
+   BUILD RIGHT — Mock legacy support chat (video prop)
    Scripted deflection answers, no backend, no real agent.
    ============================================================ */
 
@@ -19,22 +19,22 @@
 
   const SCRIPTED_ANSWERS = [
     {
-      keywords: ['laptop', 'editing', 'light'],
+      keywords: ['sofa', 'linen', 'small'],
       bubbles: [
         {
-          text: 'You can browse all laptops in Computers & Peripherals. Try the filters for price and weight.',
+          text: 'You can browse seating in Living Room. Try the filters for size and fabric.',
           links: [
-            { label: 'Laptops collection', href: '/collections/laptops' },
-            { label: 'Compare specifications' }
+            { label: 'Living room collection', href: '/collections/living-room' },
+            { label: 'Compare materials' }
           ]
         }
       ]
     },
     {
-      keywords: ['battery'],
+      keywords: ['shade', 'lamp', 'cracked'],
       bubbles: [
         {
-          text: 'Battery life varies by model. Check the Specifications tab on each product page, or I can open a support ticket.',
+          text: 'If a shade arrived cracked, we can swap it. Start from your order, or I can open a support ticket.',
           actions: ['Open a ticket', 'No, thanks']
         }
       ]

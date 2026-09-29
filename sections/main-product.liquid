@@ -134,8 +134,8 @@
                   {%- assign _text = block.settings.text | downcase -%}
                   {%- if _text contains 'shipping' -%}
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                  {%- elsif _text contains 'warranty' -%}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  {%- elsif _text contains 'material' or _text contains 'care' -%}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
                   {%- elsif _text contains 'return' -%}
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
                   {%- else -%}
@@ -192,7 +192,6 @@
     {%- assign tab_specs = product.metafields.custom.specs.value -%}
     {%- assign tab_compatibility = product.metafields.custom.compatibility.value -%}
     {%- assign tab_in_the_box = product.metafields.custom.in_the_box.value -%}
-    {%- assign tab_warranty = product.metafields.custom.warranty.value -%}
 
     {%- capture _auto_specs -%}{%- render 'product-specs', product: product -%}{%- endcapture -%}
     {%- assign _has_auto_specs = false -%}
@@ -204,7 +203,6 @@
     {%- if tab_specs != blank or _has_auto_specs -%}{%- assign mf_tabs = mf_tabs | append: 'specs,' -%}{%- endif -%}
     {%- if tab_compatibility != blank -%}{%- assign mf_tabs = mf_tabs | append: 'compatibility,' -%}{%- endif -%}
     {%- if tab_in_the_box != blank -%}{%- assign mf_tabs = mf_tabs | append: 'in_the_box,' -%}{%- endif -%}
-    {%- if tab_warranty != blank -%}{%- assign mf_tabs = mf_tabs | append: 'warranty,' -%}{%- endif -%}
     {%- assign mf_tabs_arr = mf_tabs | split: ',' -%}
 
     <div class="mt-lg" data-tabs>
@@ -220,16 +218,15 @@
             >
               {%- case tab_key -%}
                 {%- when 'overview' -%}Overview
-                {%- when 'specs' -%}Specs
-                {%- when 'compatibility' -%}Compatibility
-                {%- when 'in_the_box' -%}In the Box
-                {%- when 'warranty' -%}Warranty
+                {%- when 'specs' -%}Materials
+                {%- when 'compatibility' -%}Dimensions
+                {%- when 'in_the_box' -%}Care
               {%- endcase -%}
             </button>
           {%- endfor -%}
         {%- else -%}
           <button class="tabs__tab is-active" data-tab="tab-overview" role="tab" aria-selected="true">Overview</button>
-          <button class="tabs__tab" data-tab="tab-specs" role="tab" aria-selected="false">Specs</button>
+          <button class="tabs__tab" data-tab="tab-specs" role="tab" aria-selected="false">Materials</button>
         {%- endif -%}
       </div>
 
@@ -241,7 +238,6 @@
             {%- when 'specs' -%}{%- assign tab_content = tab_specs -%}
             {%- when 'compatibility' -%}{%- assign tab_content = tab_compatibility -%}
             {%- when 'in_the_box' -%}{%- assign tab_content = tab_in_the_box -%}
-            {%- when 'warranty' -%}{%- assign tab_content = tab_warranty -%}
           {%- endcase -%}
           <div class="tabs__panel {% if forloop.first %}is-active{% endif %}" data-panel="tab-{{ tab_key }}" role="tabpanel">
             <div class="accordion__body pdp-tab-content">
@@ -263,7 +259,7 @@
             {%- if _has_auto_specs -%}
               {{ _auto_specs }}
             {%- else -%}
-              <p>Specifications coming soon.</p>
+              <p>Materials and dimensions are listed with each piece.</p>
             {%- endif -%}
           </div>
         </div>
@@ -351,13 +347,12 @@
       "name": "Product page",
       "blocks": [
         { "type": "benefit", "settings": { "text": "Free shipping over $99" } },
-        { "type": "benefit", "settings": { "text": "2-year warranty included" } },
+        { "type": "benefit", "settings": { "text": "Materials chosen with care" } },
         { "type": "benefit", "settings": { "text": "30-day easy returns" } },
-        { "type": "tab", "settings": { "title": "Overview", "content": "<p>Product details and information.</p>" } },
-        { "type": "tab", "settings": { "title": "Specs", "content": "<p>Technical specifications.</p>" } },
-        { "type": "tab", "settings": { "title": "Compatibility", "content": "<p>Compatible devices and systems.</p>" } },
-        { "type": "tab", "settings": { "title": "In the box", "content": "<p>What's included with your purchase.</p>" } },
-        { "type": "tab", "settings": { "title": "Warranty", "content": "<p>Warranty information and terms.</p>" } }
+        { "type": "tab", "settings": { "title": "Overview", "content": "<p>How the piece lives in a room.</p>" } },
+        { "type": "tab", "settings": { "title": "Materials", "content": "<p>Fabric, wood, finish, and how the piece is made.</p>" } },
+        { "type": "tab", "settings": { "title": "Dimensions", "content": "<p>Width, depth, height, and how it sits in a room.</p>" } },
+        { "type": "tab", "settings": { "title": "Care", "content": "<p>How to look after the materials at home.</p>" } }
       ]
     }
   ]

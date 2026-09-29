@@ -83,7 +83,7 @@
     "checkout": "Zur Kasse",
     "empty": "Ihr Warenkorb ist leer",
     "continue_shopping": "Weiter einkaufen",
-    "complete_setup": "Einrichtung abschließen",
+    "complete_setup": "Den Raum vollenden",
     "decrease": "Menge verringern",
     "increase": "Menge erhöhen",
     "shipping_note": "Versand und Steuern werden an der Kasse berechnet."
@@ -110,7 +110,7 @@
     "secure_checkout": "Sicherer Checkout",
     "free_shipping": "Kostenloser Versand ab 99€",
     "easy_returns": "Einfache Rückgabe",
-    "warranty_included": "Garantie inklusive",
+    "warranty_included": "Pflege inklusive",
     "rights": "Alle Rechte vorbehalten."
   },
   "support": {
@@ -124,7 +124,7 @@
   "bizmis": {
     "panel": {
       "title": "Lernen Sie Ihren sprachgesteuerten Verkäufer kennen",
-      "examples": "Ich suche einen Laptop, der den ganzen Tag durchhält.\nDiese Kopfhörer sehen gleich aus. Welche sind besser zum Joggen?\nHat das Schnellladen fürs iPhone 15?\nWo ist meine Bestellung? Die Sendungsverfolgung wurde seit Tagen nicht aktualisiert.\nDas Ladegerät kam mit dem falschen Stecker. Kann ich es umtauschen?\nLiefern Sie nach Spanien? Gilt die Garantie dort?",
+      "examples": "Ich suche ein Leinensofa für ein kleines Wohnzimmer.\nDiese zwei Eichentische sehen ähnlich aus. Welcher bietet sechs Personen Platz?\nIst dieser Teppich für Fußbodenheizung geeignet?\nWo ist meine Bestellung? Die Sendungsverfolgung wurde seit Tagen nicht aktualisiert.\nDie Lampe kam mit einem gesprungenen Schirm. Kann ich sie umtauschen?\nLiefern Sie nach Spanien? Ist diese Oberfläche nur für innen?",
       "example_tags": "Umsatz steigern · Produktsuche\nUmsatz steigern · Produktvergleich\nUmsatz steigern · Technische Beratung\nSupport-Stunden sparen · Bestellstatus\nSupport-Stunden sparen · Retourenhilfe\nSupport-Stunden sparen · Vorab-Fragen",
       "install": "Bizmis installieren",
       "just_say": "Sag einfach",

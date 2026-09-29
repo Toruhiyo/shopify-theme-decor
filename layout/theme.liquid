@@ -1,6 +1,6 @@
 <!doctype html>
 {%- liquid
-  assign promo_red = settings.color_primary | default: '#D1001A'
+  assign promo_accent = settings.color_primary | default: '#A7C957'
   assign promo_home = false
   if template.name == 'index'
     assign promo_home = true
@@ -36,7 +36,7 @@
       if (!{{ has_promo_bar | json }}) root.style.setProperty('--promo-height', '28px');
     })();
   </script>
-  <style>html.is-promo-opening{background:var(--color-bg)}html.is-promo-cover{background:{{ promo_red }}}</style>
+  <style>html.is-promo-opening{background:var(--color-bg)}html.is-promo-cover{background:{{ promo_accent }}}</style>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0">
   {%- assign _bg_check = settings.color_background | remove: '#' | downcase | slice: 0 -%}
@@ -50,7 +50,7 @@
       var meta = document.querySelector('meta[name="theme-color"]');
       if (!meta) return;
       if (marketingAd) meta.content = {{ settings.color_background | json }};
-      else if (isHome && params.get('nocover') !== '1') meta.content = {{ promo_red | json }};
+      else if (isHome && params.get('nocover') !== '1') meta.content = {{ promo_accent | json }};
     })();
   </script>
 
@@ -72,7 +72,7 @@
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   {% style %}
     {{ settings.font_heading | font_face: font_display: 'swap' }}
@@ -96,7 +96,7 @@
   {%- comment -%}
     Detect legacy dark-theme settings that haven't been overwritten yet.
     If the background color's red channel starts with 0 or 1 (hex), it's a very
-    dark color from the old theme — override with Crimson Index defaults.
+    dark color from the old theme — override with Build Right defaults.
   {%- endcomment -%}
   {%- assign _bg_hex = settings.color_background | remove: '#' | downcase -%}
   {%- assign _r = _bg_hex | slice: 0 -%}
@@ -107,11 +107,11 @@
 
   {% style %}
     :root {
-      --font-heading: {{ settings.font_heading.family }}, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-heading: {{ settings.font_heading.family }}, 'Playfair Display', Georgia, 'Times New Roman', serif;
       --font-heading-weight: {{ settings.font_heading.weight }};
       --font-heading-style: {{ settings.font_heading.style }};
 
-      --font-body: {{ settings.font_body.family }}, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: {{ settings.font_body.family }}, 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --font-body-weight: {{ settings.font_body.weight }};
       --font-body-style: {{ settings.font_body.style }};
       --font-body-size: {{ settings.font_body_size | default: 16 }}px;
@@ -120,21 +120,22 @@
       --type-scale: {{ type_modifier }};
       --page-width: {{ settings.page_width | default: 1280 }}px;
       --section-spacing: {{ settings.spacing_grid | default: 64 }}px;
-      --radius-button: {{ settings.button_radius | default: 10 }}px;
-      --radius-card: {{ settings.card_radius | default: 16 }}px;
+      --radius-button: {{ settings.button_radius | default: 24 }}px;
+      --radius-card: {{ settings.card_radius | default: 20 }}px;
 
       {%- if _use_defaults -%}
-      --color-bg: #FFFFFF;
-      --color-fg: #111111;
-      --color-card: #F5F5F7;
-      --color-muted: #F5F5F7;
-      --color-muted-fg: #6E6E73;
-      --color-border: #E5E5EA;
-      --color-border-raw: #E5E5EA;
-      --color-primary: #D1001A;
-      --color-primary-fg: #FFFFFF;
-      --color-success: #34C759;
-      --color-warning: #FF9500;
+      --color-bg: #F6F3EC;
+      --color-fg: #1A2414;
+      --color-card: #F3F6EC;
+      --color-muted: #F3F6EC;
+      --color-muted-fg: #5E6A54;
+      --color-border: #DCE3D0;
+      --color-border-raw: #DCE3D0;
+      --color-primary: #A7C957;
+      --color-primary-fg: #1A2414;
+      --color-primary-ink: #3E5418;
+      --color-success: #2F6B4F;
+      --color-warning: #C47B3A;
       --shadow-card: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
       --shadow-elevated: 0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.03);
       {%- else -%}
@@ -147,6 +148,7 @@
       --color-border-raw: {{ settings.color_border }};
       --color-primary: {{ settings.color_primary }};
       --color-primary-fg: {{ settings.color_primary_foreground }};
+      --color-primary-ink: #3E5418;
       --color-success: {{ settings.color_success }};
       --color-warning: {{ settings.color_warning }};
       --shadow-card: {% if settings.minimal_shadows %}0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02){% else %}none{% endif %};
@@ -262,7 +264,7 @@
       </div>
     </div>
     <div class="promo-opening__store-logo" aria-hidden="true">
-      <img src="{{ 'logo-white.png' | asset_url }}" alt="" class="promo-mark" width="933" height="205">
+      <img src="{{ 'logo-white.svg' | asset_url }}" alt="" class="promo-mark" width="560" height="72">
     </div>
     <div class="promo-scale" data-promo-scale hidden aria-hidden="true" data-promo-wall-webm="{{ 'promo-pain-wall.webm' | asset_url }}" data-promo-wall-mp4="{{ 'promo-pain-wall.mp4' | asset_url }}">
       <div class="promo-scale__wall" data-promo-scale-wall></div>
@@ -292,14 +294,15 @@
       },
       {
         "slug": "buildright-home",
-        "name": "BuildRight Home",
-        "sector": "Home & DIY",
-        "accent": "#f53e3e",
+        "name": "Build Right Home",
+        "sector": "Home decor",
+        "accent": {{ promo_accent | json }},
         "hero": {{ 'promo-home-buildright.png' | asset_url | json }},
         "model": "https://cdn.bizmis.ai/common/avatars/models/will.glb",
-        "stamp": null,
-        "stampScale": 1,
-        "meshColors": { "UPPERBODY_Top": "#f53e3e", "HEAD_Hat": "#f53e3e" }
+        "logo": {{ 'logo-transparent.svg' | asset_url | json }},
+        "stamp": {{ 'logo-initial.svg' | asset_url | json }},
+        "stampScale": 0.86,
+        "meshColors": { "UPPERBODY_Top": {{ promo_accent | json }}, "HEAD_Hat": {{ promo_accent | json }} }
       },
       {
         "slug": "12-weather-outfitters",
@@ -347,18 +350,6 @@
         "meshColors": { "UPPERBODY_Top": "#F8924A", "HEAD_Hat": "#F8924A" }
       },
       {
-        "slug": "meridian",
-        "name": "Meridian",
-        "sector": "Consumer electronics",
-        "accent": {{ promo_red | json }},
-        "hero": {{ 'promo-home-meridian.png' | asset_url | json }},
-        "model": "https://cdn.bizmis.ai/common/avatars/models/teo.glb",
-        "logo": {{ 'logo-transparent.png' | asset_url | json }},
-        "stamp": {{ 'logo-white.png' | asset_url | json }},
-        "stampScale": 0.76,
-        "meshColors": { "UPPERBODY_Top": {{ promo_red | json }}, "HEAD_Hat": {{ promo_red | json }} }
-      },
-      {
         "slug": "paper-and-pine-books",
         "name": "Paper and Pine Books",
         "sector": "Books & stationery",
@@ -374,13 +365,13 @@
 
   <div class="promo-cover" id="promo-cover" data-promo-cover aria-hidden="true">
     <div class="promo-cover__lockup">
-      <img src="{{ 'logo-white.png' | asset_url }}" alt="" class="promo-mark" width="933" height="205">
-      <p class="promo-cover__subtitle">Consumer Electronics</p>
+      <img src="{{ 'logo-mono.svg' | asset_url }}" alt="" class="promo-mark" width="560" height="72">
+      <p class="promo-cover__subtitle">Home Decor</p>
     </div>
   </div>
 
   <div class="loader" id="page-loader" aria-hidden="true">
-    <img src="{{ 'logo-mono.png' | asset_url }}" alt="{{ shop.name }}" class="loader__logo" width="160" height="40">
+    <img src="{{ 'logo-mono.svg' | asset_url }}" alt="{{ shop.name }}" class="loader__logo" width="160" height="40">
   </div>
   <script>window.addEventListener('load',function(){var l=document.getElementById('page-loader');if(l){l.classList.add('is-hidden');l.addEventListener('transitionend',function(){l.remove()})}})</script>
 

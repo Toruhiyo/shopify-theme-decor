@@ -40,7 +40,7 @@ html.is-promo-opening.is-promo-depart body > * {
 
 html.is-promo-cover,
 html.is-promo-cover body {
-  background: var(--color-primary, #D1001A) !important;
+  background: var(--color-primary, #A7C957) !important;
 }
 
 
@@ -5166,7 +5166,7 @@ html.is-promo-opening.is-promo-pitch .bizmis-caption-word {
   z-index: 100000;
   align-items: center;
   justify-content: center;
-  background: var(--color-primary, #D1001A);
+  background: var(--color-primary, #A7C957);
   pointer-events: none;
 }
 
@@ -5189,7 +5189,7 @@ html.is-promo-cover .promo-cover,
 
 .promo-cover__subtitle {
   margin: 0;
-  color: var(--ad-white);
+  color: var(--color-primary-fg, #1A2414);
   font-family: var(--font-body);
   font-weight: 500;
   font-size: clamp(0.95rem, 1.7vw, 1.15rem);

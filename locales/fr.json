@@ -96,7 +96,7 @@
     "checkout": "Paiement",
     "empty": "Votre panier est vide",
     "continue_shopping": "Continuer vos achats",
-    "complete_setup": "Complétez votre configuration",
+    "complete_setup": "Achever la pièce",
     "decrease": "Diminuer la quantité",
     "increase": "Augmenter la quantité",
     "shipping_note": "Frais de livraison et taxes calculés à la caisse.",
@@ -127,7 +127,7 @@
     "secure_checkout": "Paiement sécurisé",
     "free_shipping": "Livraison gratuite dès 99 $",
     "easy_returns": "Retours faciles",
-    "warranty_included": "Garantie incluse",
+    "warranty_included": "Entretien inclus",
     "rights": "Tous droits réservés."
   },
   "support": {
@@ -150,7 +150,7 @@
   "bizmis": {
     "panel": {
       "title": "Découvrez votre vendeur vocal",
-      "examples": "Je cherche un ordinateur portable qui tienne toute la journée.\nCes écouteurs se ressemblent. Lesquels sont les mieux pour courir ?\nEst-ce compatible charge rapide pour iPhone 15 ?\nOù est ma commande ? Le suivi n'a pas été mis à jour depuis plusieurs jours.\nLe chargeur est arrivé avec la mauvaise prise. Puis-je l'échanger ?\nLivrez-vous en Espagne ? La garantie y est-elle valable ?",
+      "examples": "Je cherche un canapé en lin pour un petit salon.\nCes deux tables en chêne se ressemblent. Laquelle accueille six personnes ?\nCe tapis convient-il à un sol chauffant ?\nOù est ma commande ? Le suivi n'a pas été mis à jour depuis plusieurs jours.\nLa lampe est arrivée avec un abat-jour fêlé. Puis-je l'échanger ?\nLivrez-vous en Espagne ? Cette finition est-elle réservée à l'intérieur ?",
       "example_tags": "Augmenter les ventes · Découverte produit\nAugmenter les ventes · Comparaison produit\nAugmenter les ventes · Conseil technique\nGagnez des heures de support · Suivi de commande\nGagnez des heures de support · Aide aux retours\nGagnez des heures de support · Questions avant-vente",
       "install": "Installer Bizmis",
       "just_say": "Dites simplement",

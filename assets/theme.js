@@ -834,7 +834,7 @@
   const PROMO_COVER_FADE_MS = 500;
   const PROMO_REDUCED_NAV_MS = 400;
   let promoStoreUnlocked = promoVideo === 'true';
-  const PROMO_TYPE_QUERY = 'I want a portable laptop with long battery life for coding.';
+  const PROMO_TYPE_QUERY = 'I want a linen sofa that works in a small living room.';
   const PROMO_TYPE_AFTER_MS = 8000;
   const PROMO_TYPE_CHAR_MS = 55;
   const PROMO_TYPE_FIND_MS = 15000;
@@ -8303,7 +8303,7 @@
     resize();
     window.addEventListener('resize', resize);
 
-    const primary = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim() || '#D1001A';
+    const primary = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim() || '#A7C957';
     const gravity = 0.32;
     const drag = 0.006;
     const duration = 2600;

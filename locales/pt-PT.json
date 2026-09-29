@@ -83,7 +83,7 @@
     "checkout": "Finalizar compra",
     "empty": "O seu carrinho está vazio",
     "continue_shopping": "Continuar a comprar",
-    "complete_setup": "Concluir configuração",
+    "complete_setup": "Completar a divisão",
     "decrease": "Diminuir quantidade",
     "increase": "Aumentar quantidade",
     "shipping_note": "Portes e impostos calculados no checkout."
@@ -110,7 +110,7 @@
     "secure_checkout": "Checkout seguro",
     "free_shipping": "Portes grátis acima de 99€",
     "easy_returns": "Devoluções fáceis",
-    "warranty_included": "Garantia incluída",
+    "warranty_included": "Cuidado incluído",
     "rights": "Todos os direitos reservados."
   },
   "support": {
@@ -124,7 +124,7 @@
   "bizmis": {
     "panel": {
       "title": "Conheça o seu assistente de loja por voz",
-      "examples": "Procuro um portátil que aguente o dia todo.\nEstes auriculares parecem iguais. Quais são melhores para correr?\nTem carregamento rápido para iPhone 15?\nOnde está a minha encomenda? O rastreio não atualiza há dias.\nO carregador veio com a ficha errada. Posso trocá-lo?\nEnviam para Espanha? A garantia é válida lá?",
+      "examples": "Procuro um sofá de linho para uma sala pequena.\nEstas duas mesas de carvalho parecem iguais. Qual senta seis pessoas?\nEste tapete é seguro em piso radiante?\nOnde está a minha encomenda? O rastreio não atualiza há dias.\nO candeeiro chegou com o abajur rachado. Posso trocá-lo?\nEnviam para Espanha? Este acabamento é só para interior?",
       "example_tags": "Aumente vendas · Descoberta de produto\nAumente vendas · Comparação de produtos\nAumente vendas · Orientação técnica\nPoupe horas de suporte · Estado da encomenda\nPoupe horas de suporte · Ajuda com trocas\nPoupe horas de suporte · Dúvidas pré-compra",
       "install": "Instalar o Bizmis",
       "just_say": "Basta dizer",

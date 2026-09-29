@@ -83,7 +83,7 @@
     "checkout": "Afrekenen",
     "empty": "Je winkelwagen is leeg",
     "continue_shopping": "Verder winkelen",
-    "complete_setup": "Setup voltooien",
+    "complete_setup": "Maak de kamer af",
     "decrease": "Aantal verlagen",
     "increase": "Aantal verhogen",
     "shipping_note": "Verzendkosten en belastingen worden berekend bij het afrekenen."
@@ -110,7 +110,7 @@
     "secure_checkout": "Veilig afrekenen",
     "free_shipping": "Gratis verzending vanaf €99",
     "easy_returns": "Makkelijk retourneren",
-    "warranty_included": "Garantie inbegrepen",
+    "warranty_included": "Onderhoud inbegrepen",
     "rights": "Alle rechten voorbehouden."
   },
   "support": {
@@ -124,7 +124,7 @@
   "bizmis": {
     "panel": {
       "title": "Maak kennis met je spraakgestuurde verkoper",
-      "examples": "Ik zoek een laptop die de hele dag meegaat.\nDeze oordopjes lijken hetzelfde. Welke zijn beter voor hardlopen?\nOndersteunt dit snelladen voor iPhone 15?\nWaar is mijn bestelling? De tracking is al dagen niet bijgewerkt.\nDe oplader is met de verkeerde stekker geleverd. Kan ik hem ruilen?\nLeveren jullie in Spanje? Geldt de garantie daar ook?",
+      "examples": "Ik zoek een linnen bank voor een kleine woonkamer.\nDeze twee eiken tafels lijken op elkaar. Welke is voor zes personen?\nKan dit kleed op vloerverwarming?\nWaar is mijn bestelling? De tracking is al dagen niet bijgewerkt.\nDe lamp kwam met een gebarsten kap. Kan ik hem ruilen?\nLeveren jullie in Spanje? Is deze afwerking alleen voor binnen?",
       "example_tags": "Verhoog omzet · Productontdekking\nVerhoog omzet · Productvergelijking\nVerhoog omzet · Technisch advies\nBespaar supporturen · Bestelstatus\nBespaar supporturen · Retourhulp\nBespaar supporturen · Vooraankoopvragen",
       "install": "Bizmis installeren",
       "just_say": "Zeg gewoon",

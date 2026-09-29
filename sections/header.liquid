@@ -21,7 +21,7 @@
           <a href="/">
             <img
               class="header__logo-img--full"
-              src="{%- if section.settings.logo != blank -%}{{ section.settings.logo | image_url: width: 200 }}{%- else -%}{{ 'logo-transparent.png' | asset_url }}{%- endif -%}"
+              src="{%- if section.settings.logo != blank -%}{{ section.settings.logo | image_url: width: 400 }}{%- else -%}{{ 'logo-transparent.svg' | asset_url }}{%- endif -%}"
               alt="{{ shop.name }}"
               width="160"
               height="40"
@@ -30,7 +30,7 @@
             {%- comment -%} Compact mark for phones, where the wordmark crowds the icon row. {%- endcomment -%}
             <img
               class="header__logo-img--initial"
-              src="{{ 'logo-initial.png' | asset_url }}"
+              src="{{ 'logo-initial.svg' | asset_url }}"
               alt="{{ shop.name }}"
               width="169"
               height="164"

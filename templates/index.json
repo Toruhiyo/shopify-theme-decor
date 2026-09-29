@@ -29,21 +29,21 @@
           "type": "feature",
           "settings": {
             "icon": "shield",
-            "text": "2-year warranty"
+            "text": "Easy returns"
           }
         },
         "f3": {
           "type": "feature",
           "settings": {
-            "icon": "star",
-            "text": "Top rated"
+            "icon": "home",
+            "text": "Design help"
           }
         },
         "f4": {
           "type": "feature",
           "settings": {
-            "icon": "headphones",
-            "text": "24/7 support"
+            "icon": "star",
+            "text": "Top rated"
           }
         }
       },
@@ -80,7 +80,7 @@
       "type": "featured-collection",
       "settings": {
         "subtitle": "This week",
-        "title": "Hot deals",
+        "title": "In the room",
         "products_count": 8,
         "columns": "4",
         "layout": "carousel",
@@ -91,8 +91,8 @@
     "accessories": {
       "type": "accessories-upsell",
       "settings": {
-        "subtitle": "You may also need",
-        "title": "Complete your setup",
+        "subtitle": "Alongside",
+        "title": "Finish the room",
         "products_count": 8,
         "show_vendor": false
       }

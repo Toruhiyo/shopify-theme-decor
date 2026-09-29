@@ -15,10 +15,10 @@
       "type": "footer",
       "settings": {
         "show_trust_row": true,
-        "brand_text": "Premium gaming gear and peripherals built for competitive players. Level up your setup with cutting-edge tech.",
+        "brand_text": "Pieces for real rooms. Linen, oak, ceramics, and light, chosen so a home feels finished.",
         "support_heading": "Support",
-        "newsletter_heading": "Stay in the Loop",
-        "newsletter_text": "Get drops, deals, and new gear first.",
+        "newsletter_heading": "New pieces",
+        "newsletter_text": "Materials, rooms, and arrivals worth opening.",
         "newsletter_placeholder": "Enter your email",
         "newsletter_button": "Subscribe"
       }
