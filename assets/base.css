@@ -1209,8 +1209,8 @@ textarea.input {
 .header__nav-list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0;
+  justify-content: flex-start;
+  gap: 0.25rem;
   flex: 1;
   min-width: 0;
 }
