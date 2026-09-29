@@ -1,0 +1,431 @@
+<!doctype html>
+{%- liquid
+  assign promo_red = settings.color_primary | default: '#D1001A'
+  assign promo_home = false
+  if template.name == 'index'
+    assign promo_home = true
+  endif
+-%}
+{%- capture promo_bar_class -%}{% render 'bizmis-top-banner', mode: 'class' %}{%- endcapture -%}
+{%- assign has_promo_bar = false -%}
+{%- if promo_bar_class contains 'has-promo-bar' -%}
+  {%- assign has_promo_bar = true -%}
+{%- endif -%}
+{%- assign promo_clip_keys = "pain-desktop-scroll-up-0|pain-desktop-scroll-up-1|pain-desktop-scroll-down-0|pain-desktop-scroll-down-1|pain-desktop-wander-near-0|pain-desktop-wander-near-1|pain-desktop-wander-far-0|pain-desktop-wander-far-1|pain-desktop-product-read-0|pain-desktop-product-read-1|pain-desktop-product-scroll-0|pain-desktop-product-scroll-1|pain-desktop-compare-0|pain-desktop-compare-1|pain-phone-scroll-up-0|pain-phone-scroll-up-1|pain-phone-scroll-down-0|pain-phone-scroll-down-1|pain-phone-product-read-0|pain-phone-product-read-1|pain-phone-product-scroll-0|pain-phone-product-scroll-1|pain-phone-compare-0|pain-phone-compare-1|pain-tablet-scroll-up-0|pain-tablet-scroll-up-1|pain-tablet-scroll-down-0|pain-tablet-scroll-down-1|pain-tablet-product-read-0|pain-tablet-product-read-1|pain-tablet-product-scroll-0|pain-tablet-product-scroll-1|pain-tablet-compare-0|pain-tablet-compare-1|pitch-desktop-scroll-up-0|pitch-desktop-scroll-up-1|pitch-desktop-scroll-down-0|pitch-desktop-scroll-down-1|pitch-desktop-wander-near-0|pitch-desktop-wander-near-1|pitch-desktop-wander-far-0|pitch-desktop-wander-far-1|pitch-desktop-product-read-0|pitch-desktop-product-read-1|pitch-desktop-product-scroll-0|pitch-desktop-product-scroll-1|pitch-desktop-compare-0|pitch-desktop-compare-1|pitch-phone-scroll-up-0|pitch-phone-scroll-up-1|pitch-phone-scroll-down-0|pitch-phone-scroll-down-1|pitch-phone-product-read-0|pitch-phone-product-read-1|pitch-phone-product-scroll-0|pitch-phone-product-scroll-1|pitch-phone-compare-0|pitch-phone-compare-1|pitch-tablet-scroll-up-0|pitch-tablet-scroll-up-1|pitch-tablet-scroll-down-0|pitch-tablet-scroll-down-1|pitch-tablet-product-read-0|pitch-tablet-product-read-1|pitch-tablet-product-scroll-0|pitch-tablet-product-scroll-1|pitch-tablet-compare-0|pitch-tablet-compare-1|pitch-desktop-moment-catalog-a-0|pitch-desktop-moment-catalog-b-0|pitch-desktop-moment-product-a-0|pitch-desktop-moment-product-b-0|pitch-desktop-moment-compare-a-0|pitch-desktop-moment-compare-b-0|pitch-desktop-moment-bundle-a-0|pitch-desktop-moment-bundle-b-0|pitch-phone-moment-catalog-a-0|pitch-phone-moment-catalog-b-0|pitch-phone-moment-product-a-0|pitch-phone-moment-product-b-0|pitch-phone-moment-compare-a-0|pitch-phone-moment-compare-b-0|pitch-phone-moment-bundle-a-0|pitch-phone-moment-bundle-b-0|pitch-tablet-moment-catalog-a-0|pitch-tablet-moment-catalog-b-0|pitch-tablet-moment-product-a-0|pitch-tablet-moment-product-b-0|pitch-tablet-moment-compare-a-0|pitch-tablet-moment-compare-b-0|pitch-tablet-moment-bundle-a-0|pitch-tablet-moment-bundle-b-0" | split: "|" -%}
+{%- capture promo_clip_urls -%}{ {%- for key in promo_clip_keys -%}"{{ key }}":{{ 'promo-clip-' | append: key | append: '.mp4' | asset_url | json }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%} }{%- endcapture -%}
+{%- capture promo_clay_urls -%}{"capsule":{{ 'promo-product-capsule.png' | asset_url | json }},"capsule-b":{{ 'promo-product-capsule-b.png' | asset_url | json }},"capsule-c":{{ 'promo-product-capsule-c.png' | asset_url | json }},"sphere":{{ 'promo-product-sphere.png' | asset_url | json }},"sphere-b":{{ 'promo-product-sphere-b.png' | asset_url | json }},"sphere-c":{{ 'promo-product-sphere-c.png' | asset_url | json }},"rounded-cube":{{ 'promo-product-rounded-cube.png' | asset_url | json }},"rounded-cube-b":{{ 'promo-product-rounded-cube-b.png' | asset_url | json }},"rounded-cube-c":{{ 'promo-product-rounded-cube-c.png' | asset_url | json }},"cone":{{ 'promo-product-cone.png' | asset_url | json }},"cone-b":{{ 'promo-product-cone-b.png' | asset_url | json }},"cone-c":{{ 'promo-product-cone-c.png' | asset_url | json }},"torus":{{ 'promo-product-torus.png' | asset_url | json }},"torus-b":{{ 'promo-product-torus-b.png' | asset_url | json }},"torus-c":{{ 'promo-product-torus-c.png' | asset_url | json }},"tall-box":{{ 'promo-product-tall-box.png' | asset_url | json }},"tall-box-b":{{ 'promo-product-tall-box-b.png' | asset_url | json }},"tall-box-c":{{ 'promo-product-tall-box-c.png' | asset_url | json }},"cylinder":{{ 'promo-product-cylinder.png' | asset_url | json }},"cylinder-b":{{ 'promo-product-cylinder-b.png' | asset_url | json }},"cylinder-c":{{ 'promo-product-cylinder-c.png' | asset_url | json }},"dome":{{ 'promo-product-dome.png' | asset_url | json }},"dome-b":{{ 'promo-product-dome-b.png' | asset_url | json }},"dome-c":{{ 'promo-product-dome-c.png' | asset_url | json }},"slab":{{ 'promo-product-slab.png' | asset_url | json }},"slab-b":{{ 'promo-product-slab-b.png' | asset_url | json }},"slab-c":{{ 'promo-product-slab-c.png' | asset_url | json }}}{%- endcapture -%}
+<html class="no-js{% if request.query_string contains 'promo_video=mock' or request.query_string contains 'promo_video=unattended' %} is-promo-greyscale{% endif %}" lang="{{ request.locale.iso_code }}" data-overlayscrollbars-initialize data-promo-bizmis-stamp="{{ 'bizmis-logo-full-white-transparent.png' | asset_url }}" data-promo-clay="{{ promo_clay_urls | escape }}" data-promo-clips="{{ promo_clip_urls | escape }}" data-promo-pitch-lead="{{ 'promo-pitch-grid-lead.jpg' | asset_url }}">
+<head>
+  <meta charset="utf-8">
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var promoVideo = params.get('promo_video');
+      var marketingAd = params.get('marketing') === 'ad-1' || promoVideo === 'opening';
+      var isHome = {{ promo_home | json }};
+      var root = document.documentElement;
+      root.className = root.className.replace('no-js', 'js');
+      root.classList.toggle('is-promo-greyscale', promoVideo === 'mock' || promoVideo === 'unattended');
+      root.classList.toggle('is-promo-opening', marketingAd);
+      root.classList.toggle('is-promo-cover', isHome && !marketingAd && params.get('nocover') !== '1');
+      root.classList.toggle('is-promo-clip', marketingAd && !!params.get('clip'));
+      if (promoVideo || params.get('marketing')) {
+        try { sessionStorage.removeItem('bizmis-session'); } catch (e) {}
+        try { localStorage.removeItem('bizmis-session'); } catch (e) {}
+      }
+      if (!{{ has_promo_bar | json }}) root.style.setProperty('--promo-height', '28px');
+    })();
+  </script>
+  <style>html.is-promo-opening{background:var(--color-bg)}html.is-promo-cover{background:{{ promo_red }}}</style>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0">
+  {%- assign _bg_check = settings.color_background | remove: '#' | downcase | slice: 0 -%}
+  <meta name="theme-color" content="{% if _bg_check == '0' or _bg_check == '1' %}#FFFFFF{% else %}{{ settings.color_background }}{% endif %}">
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var promoVideo = params.get('promo_video');
+      var marketingAd = params.get('marketing') === 'ad-1' || promoVideo === 'opening';
+      var isHome = {{ promo_home | json }};
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (!meta) return;
+      if (marketingAd) meta.content = {{ settings.color_background | json }};
+      else if (isHome && params.get('nocover') !== '1') meta.content = {{ promo_red | json }};
+    })();
+  </script>
+
+  <title>
+    {{ page_title }}
+    {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+    {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  </title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  {% render 'meta-tags' %}
+
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  {% style %}
+    {{ settings.font_heading | font_face: font_display: 'swap' }}
+    {{ settings.font_body | font_face: font_display: 'swap' }}
+  {% endstyle %}
+
+  {{ 'overlayscrollbars.min.css' | asset_url | stylesheet_tag }}
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+  {{ 'promo-ad-tokens.css' | asset_url | stylesheet_tag }}
+  {{ 'promo-ad.css' | asset_url | stylesheet_tag }}
+  {{ content_for_header }}
+  {% render 'favicon' %}
+
+  {%- assign type_modifier = 1.0 -%}
+  {%- if settings.typography_scale == 'small' -%}
+    {%- assign type_modifier = 0.9 -%}
+  {%- elsif settings.typography_scale == 'large' -%}
+    {%- assign type_modifier = 1.1 -%}
+  {%- endif -%}
+
+  {%- comment -%}
+    Detect legacy dark-theme settings that haven't been overwritten yet.
+    If the background color's red channel starts with 0 or 1 (hex), it's a very
+    dark color from the old theme — override with Crimson Index defaults.
+  {%- endcomment -%}
+  {%- assign _bg_hex = settings.color_background | remove: '#' | downcase -%}
+  {%- assign _r = _bg_hex | slice: 0 -%}
+  {%- assign _use_defaults = false -%}
+  {%- if _r == '0' or _r == '1' -%}
+    {%- assign _use_defaults = true -%}
+  {%- endif -%}
+
+  {% style %}
+    :root {
+      --font-heading: {{ settings.font_heading.family }}, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-heading-weight: {{ settings.font_heading.weight }};
+      --font-heading-style: {{ settings.font_heading.style }};
+
+      --font-body: {{ settings.font_body.family }}, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body-weight: {{ settings.font_body.weight }};
+      --font-body-style: {{ settings.font_body.style }};
+      --font-body-size: {{ settings.font_body_size | default: 16 }}px;
+
+      --heading-scale: {{ settings.font_heading_scale | default: 100 | divided_by: 100.0 }};
+      --type-scale: {{ type_modifier }};
+      --page-width: {{ settings.page_width | default: 1280 }}px;
+      --section-spacing: {{ settings.spacing_grid | default: 64 }}px;
+      --radius-button: {{ settings.button_radius | default: 10 }}px;
+      --radius-card: {{ settings.card_radius | default: 16 }}px;
+
+      {%- if _use_defaults -%}
+      --color-bg: #FFFFFF;
+      --color-fg: #111111;
+      --color-card: #F5F5F7;
+      --color-muted: #F5F5F7;
+      --color-muted-fg: #6E6E73;
+      --color-border: #E5E5EA;
+      --color-border-raw: #E5E5EA;
+      --color-primary: #D1001A;
+      --color-primary-fg: #FFFFFF;
+      --color-success: #34C759;
+      --color-warning: #FF9500;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+      --shadow-elevated: 0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.03);
+      {%- else -%}
+      --color-bg: {{ settings.color_background }};
+      --color-fg: {{ settings.color_foreground }};
+      --color-card: {{ settings.color_card }};
+      --color-muted: {{ settings.color_muted }};
+      --color-muted-fg: {{ settings.color_muted_foreground }};
+      --color-border: {% if settings.borders_visible %}{{ settings.color_border }}{% else %}transparent{% endif %};
+      --color-border-raw: {{ settings.color_border }};
+      --color-primary: {{ settings.color_primary }};
+      --color-primary-fg: {{ settings.color_primary_foreground }};
+      --color-success: {{ settings.color_success }};
+      --color-warning: {{ settings.color_warning }};
+      --shadow-card: {% if settings.minimal_shadows %}0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02){% else %}none{% endif %};
+      --shadow-elevated: {% if settings.minimal_shadows %}0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.03){% else %}none{% endif %};
+      {%- endif -%}
+    }
+  {% endstyle %}
+
+  <script>
+    window.Shopify = window.Shopify || {};
+    window.Shopify.money_format = {{ shop.money_format | json }};
+  </script>
+</head>
+
+<body class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}{% if settings.bizmis_demo_enabled %} bizmis-demo{% endif %} {% render 'bizmis-top-banner', mode: 'class' %}{% if request.query_string contains 'promo_video=mock' or request.query_string contains 'promo_video=unattended' %} is-promo-greyscale{% endif %}" data-overlayscrollbars-initialize>
+
+  {%- assign promo_logo_url = 'bizmis-logo-full-white-transparent.png' | asset_url -%}
+  <div class="promo-opening" id="promo-opening" data-promo-opening role="dialog" aria-modal="true" aria-label="Bizmis intro">
+    <div class="promo-opening__canvas" data-promo-canvas>
+    <div class="promo-opening__boot" data-promo-loader>
+      <p class="promo-opening__boot-label">Loading</p>
+    </div>
+    <div class="promo-opening__fill promo-opening__fill--orange" aria-hidden="true"></div>
+    <div class="promo-opening__radiance" aria-hidden="true">
+      <div class="promo-opening__waves">
+        <span class="promo-opening__wave"></span>
+        <span class="promo-opening__wave"></span>
+        <span class="promo-opening__wave"></span>
+      </div>
+    </div>
+    <div class="promo-opening__fill promo-opening__fill--red" aria-hidden="true"></div>
+    <div class="promo-opening__center">
+      <button type="button" class="promo-opening__toggle" data-promo-opening-toggle aria-pressed="false" aria-label="Typical chatbot or Agentic sales">
+        <span class="promo-opening__choice promo-opening__choice--left" aria-hidden="true">
+          <span class="promo-opening__choice-layer promo-opening__choice-layer--dark">Typical chatbot</span>
+          <span class="promo-opening__choice-layer promo-opening__choice-layer--muted">Typical chatbot</span>
+        </span>
+        <span class="promo-opening__switch" aria-hidden="true">
+          <span class="promo-opening__knob">
+            <span class="promo-opening__knob-on"></span>
+          </span>
+        </span>
+        <span class="promo-opening__choice promo-opening__choice--right" aria-hidden="true">
+          <span class="promo-opening__choice-layer promo-opening__choice-layer--idle">Agentic sales</span>
+          <span class="promo-opening__choice-layer promo-opening__choice-layer--hot">Agentic sales</span>
+        </span>
+      </button>
+    </div>
+    <div class="promo-opening__logo" aria-hidden="true">
+      <img
+        class="promo-opening__logo-img"
+        src="{{ promo_logo_url }}"
+        alt=""
+        width="1948"
+        height="640"
+        data-promo-logo-img
+      >
+      <span
+        class="promo-opening__logo-layer promo-opening__logo-layer--white"
+        data-promo-logo-mask
+        style="-webkit-mask-image: url('{{ promo_logo_url }}'); mask-image: url('{{ promo_logo_url }}');"
+      ></span>
+    </div>
+    <div class="promo-opening__pitch" aria-hidden="true">
+      <div class="promo-opening__stage">
+        <div class="promo-opening__copy">
+          <div class="promo-opening__logo-slot" data-promo-logo-target></div>
+          <p class="promo-opening__line" data-promo-pitch-line aria-label="Your store sales agent. Built to sell.">
+            <span class="promo-opening__swap">
+              <span class="promo-opening__face promo-opening__face--from" data-promo-face-from><span class="promo-opening__word" data-promo-from-word>Your</span> <span class="promo-opening__word" data-promo-from-word>store</span> <span class="promo-opening__word promo-opening__word--salesperson" data-promo-from-word><span class="promo-opening__stem">sales</span><span class="promo-opening__redefine"><span class="promo-opening__from">person</span><span class="promo-opening__to">agent</span></span><span class="promo-opening__dot">.</span></span></span>
+              <span class="promo-opening__face promo-opening__face--to" data-promo-face-to>
+                <span class="promo-opening__word promo-opening__word--hero" data-promo-to-word>Built</span>
+                <span class="promo-opening__word promo-opening__word--hero" data-promo-to-word>to</span>
+                <span class="promo-opening__word promo-opening__word--hero promo-opening__word--sell" data-promo-to-word>sell.</span>
+              </span>
+            </span>
+          </p>
+          <p class="promo-opening__see" data-promo-see aria-hidden="true"><span class="promo-opening__see-mask"><span class="promo-opening__see-word">See</span></span> <span class="promo-opening__see-mask"><span class="promo-opening__see-word">for</span></span> <span class="promo-opening__see-mask"><span class="promo-opening__see-word">yourself.</span></span></p>
+          <div class="promo-opening__moments" data-promo-moments aria-hidden="true">
+            <div class="promo-opening__store promo-device is-desktop">
+              <div class="promo-opening__browser">
+                <span class="promo-opening__browser-dots" aria-hidden="true"><i data-promo-window-close></i><i></i><i></i></span>
+                <span class="promo-opening__browser-pill" aria-hidden="true"></span>
+              </div>
+              <div class="promo-opening__moments-field" aria-hidden="true">
+                <span class="promo-opening__moments-blob is-rose"></span>
+                <span class="promo-opening__moments-blob is-orange"></span>
+                <span class="promo-opening__moments-blob is-blue"></span>
+              </div>
+              <div class="promo-opening__store-bar">
+                <span class="promo-opening__store-brand">
+                  <span class="promo-opening__store-mark" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3.6 10.2 6.1 4.8h11.8l2.5 5.4"/><path d="M4.4 10.2h15.2V19.6H4.4z"/><path d="M10.1 19.6V14h3.8v5.6"/></svg></span>
+                  <span class="promo-opening__store-name">Your store</span>
+                </span>
+                <div class="promo-moments__cart" aria-hidden="true">
+                  <span class="promo-moments__cart-burst" aria-hidden="true"></span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 7h13l-1.4 8.2H8.1L6.5 7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6.5 7 5.2 4H2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="9.2" cy="19.2" r="1.35" fill="currentColor"/><circle cx="16.6" cy="19.2" r="1.35" fill="currentColor"/></svg>
+                  <span class="promo-moments__count is-one">1</span>
+                  <span class="promo-moments__count is-two">2</span>
+                </div>
+              </div>
+              <div class="promo-opening__moments-stage" data-promo-moments-stage></div>
+            </div>
+            <span class="promo-moments__fly" aria-hidden="true"></span>
+            <p class="promo-opening__moments-label" data-promo-moments-label></p>
+          </div>
+          <div class="promo-opening__stores" data-promo-stores aria-hidden="true"></div>
+        </div>
+        <div class="promo-opening__clerk-glow" data-promo-clerk-glow aria-hidden="true"></div>
+        <div class="promo-opening__widget" data-promo-widget>
+          <div class="promo-opening__stains" data-promo-stains aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+    <div class="promo-opening__store-logo" aria-hidden="true">
+      <img src="{{ 'logo-white.png' | asset_url }}" alt="" class="promo-mark" width="933" height="205">
+    </div>
+    <div class="promo-scale" data-promo-scale hidden aria-hidden="true" data-promo-wall-webm="{{ 'promo-pain-wall.webm' | asset_url }}" data-promo-wall-mp4="{{ 'promo-pain-wall.mp4' | asset_url }}">
+      <div class="promo-scale__wall" data-promo-scale-wall></div>
+      <div class="promo-scale__verdict" data-promo-scale-verdict>
+        <div class="promo-scale__end-hero">
+          <p class="promo-scale__zero">0</p>
+          <span class="promo-scale__mark" data-promo-end-mark style="-webkit-mask-image: url('{{ promo_logo_url }}'); mask-image: url('{{ promo_logo_url }}');"></span>
+        </div>
+        <p class="promo-scale__sold" data-promo-end-caption>It replies. It doesn't sell.</p>
+      </div>
+    </div>
+    <div class="promo-opening__guide" aria-hidden="true"></div>
+    </div>
+  </div>
+  <script type="application/json" id="promo-opening-stores">
+    [
+      {
+        "slug": "rolling-district",
+        "name": "Rolling District",
+        "sector": "Car parts & accessories",
+        "accent": "#E02020",
+        "hero": {{ 'promo-home-rolling.jpg' | asset_url | json }},
+        "model": "https://cdn.bizmis.ai/common/avatars/models/teo.glb",
+        "stamp": "https://cdn.shopify.com/s/files/1/0718/2034/5421/files/logo-initial-white.png?v=1783435346",
+        "stampScale": 0.7,
+        "meshColors": { "UPPERBODY_Top": "#f53e3e", "HEAD_Hat": "#f53e3e" }
+      },
+      {
+        "slug": "buildright-home",
+        "name": "BuildRight Home",
+        "sector": "Home & DIY",
+        "accent": "#f53e3e",
+        "hero": {{ 'promo-home-buildright.png' | asset_url | json }},
+        "model": "https://cdn.bizmis.ai/common/avatars/models/will.glb",
+        "stamp": null,
+        "stampScale": 1,
+        "meshColors": { "UPPERBODY_Top": "#f53e3e", "HEAD_Hat": "#f53e3e" }
+      },
+      {
+        "slug": "12-weather-outfitters",
+        "name": "12 Weather Outfitters",
+        "sector": "Clothing & apparel",
+        "accent": "#FFD51B",
+        "hero": {{ 'promo-home-weather.jpg' | asset_url | json }},
+        "model": "https://cdn.bizmis.ai/common/avatars/models/yusuke.glb",
+        "stamp": null,
+        "stampScale": 0.8,
+        "meshColors": { "UPPERBODY_Top": "#FAF8F3", "HEAD_Hat": "#FAF8F3" }
+      },
+      {
+        "slug": "viniteca-marti",
+        "name": "Viniteca Martí",
+        "sector": "Wine & spirits",
+        "accent": "#DDBB75",
+        "hero": {{ 'promo-home-viniteca.jpg' | asset_url | json }},
+        "model": "https://cdn.bizmis.ai/common/avatars/models/adrian.glb",
+        "stamp": "https://cdn.shopify.com/s/files/1/0994/4907/8080/files/logo-initial-gold.png?v=1785233458",
+        "stampScale": 0.8,
+        "stampOffsetX": 0.04,
+        "meshColors": { "UPPERBODY_Top": "#701C33", "HEAD_Hat": "#701C33" }
+      },
+      {
+        "slug": "pulse-forge",
+        "name": "Pulse Forge",
+        "sector": "Gaming gear",
+        "accent": "#A855F7",
+        "hero": {{ 'promo-home-pulse.jpg' | asset_url | json }},
+        "model": "https://cdn.bizmis.ai/common/avatars/models/kiran.glb",
+        "stamp": "https://cdn.shopify.com/s/files/1/0995/4420/3556/files/logo-transparent_1b37f004-1d85-4d11-82dc-823a2f99a82e.png?v=1790010542",
+        "stampScale": 1.4,
+        "meshColors": { "UPPERBODY_Top": "#171717", "HEAD_Hat": "#171717" }
+      },
+      {
+        "slug": "the-apricot-theory",
+        "name": "The Apricot Theory",
+        "sector": "Skincare & beauty",
+        "accent": "#F8924A",
+        "hero": {{ 'promo-home-apricot.jpg' | asset_url | json }},
+        "model": "https://cdn.bizmis.ai/common/avatars/models/will.glb",
+        "stamp": "https://cdn.shopify.com/s/files/1/0798/0862/6925/files/the-apricot-theory-logo-white-4x.png?v=1785168107",
+        "stampScale": 1.3,
+        "meshColors": { "UPPERBODY_Top": "#F8924A", "HEAD_Hat": "#F8924A" }
+      },
+      {
+        "slug": "meridian",
+        "name": "Meridian",
+        "sector": "Consumer electronics",
+        "accent": {{ promo_red | json }},
+        "hero": {{ 'promo-home-meridian.png' | asset_url | json }},
+        "model": "https://cdn.bizmis.ai/common/avatars/models/teo.glb",
+        "logo": {{ 'logo-transparent.png' | asset_url | json }},
+        "stamp": {{ 'logo-white.png' | asset_url | json }},
+        "stampScale": 0.76,
+        "meshColors": { "UPPERBODY_Top": {{ promo_red | json }}, "HEAD_Hat": {{ promo_red | json }} }
+      },
+      {
+        "slug": "paper-and-pine-books",
+        "name": "Paper and Pine Books",
+        "sector": "Books & stationery",
+        "accent": "#29573F",
+        "hero": {{ 'promo-home-paper-pine.jpg' | asset_url | json }},
+        "model": "https://cdn.bizmis.ai/common/avatars/models/amber.glb",
+        "stamp": "https://cdn.shopify.com/s/files/1/0744/2894/0480/files/logo-light_7caefa0a-ac0e-4392-9409-cea52b0fb7fe.png?v=1778533386",
+        "stampScale": 1,
+        "meshColors": { "UPPERBODY_Top": "#29573F", "HEAD_Hat": "#29573F" }
+      }
+    ]
+  </script>
+
+  <div class="promo-cover" id="promo-cover" data-promo-cover aria-hidden="true">
+    <div class="promo-cover__lockup">
+      <img src="{{ 'logo-white.png' | asset_url }}" alt="" class="promo-mark" width="933" height="205">
+      <p class="promo-cover__subtitle">Consumer Electronics</p>
+    </div>
+  </div>
+
+  <div class="loader" id="page-loader" aria-hidden="true">
+    <img src="{{ 'logo-mono.png' | asset_url }}" alt="{{ shop.name }}" class="loader__logo" width="160" height="40">
+  </div>
+  <script>window.addEventListener('load',function(){var l=document.getElementById('page-loader');if(l){l.classList.add('is-hidden');l.addEventListener('transitionend',function(){l.remove()})}})</script>
+
+  <a class="skip-link" href="#main-content">{{ 'accessibility.skip_to_content' | t }}</a>
+
+  {% sections 'header-group' %}
+
+  <main id="main-content" role="main" tabindex="-1">
+    {%- if request.path == '/blank' or request.path == '/blank/' -%}
+      {% render 'blank-page' %}
+    {%- elsif request.path contains '/policies/' -%}
+      {% render 'policy-page' %}
+    {%- else -%}
+      {{ content_for_layout }}
+    {%- endif -%}
+  </main>
+
+  {% sections 'footer-group' %}
+
+  {% render 'cart-drawer' %}
+
+  {% render 'bizmis-demo-panel' %}
+
+  {% render 'legacy-chat' %}
+
+  <script src="{{ 'overlayscrollbars.browser.es6.min.js' | asset_url }}" defer></script>
+  <script src="{{ 'scrollbar.js' | asset_url }}" defer></script>
+
+  <script>
+    window.themeStrings = Object.assign(window.themeStrings || {}, {
+      addedToCart: {{ 'products.added_to_cart' | t | json }}
+    });
+  </script>
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+
+  {%- if settings.bizmis_demo_enabled -%}
+    <script src="{{ 'bizmis-demo.js' | asset_url }}" defer></script>
+  {%- endif -%}
+
+  {%- if settings.legacy_chat_enabled -%}
+    <script src="{{ 'legacy-chat.js' | asset_url }}" defer></script>
+  {%- endif -%}
+
+  {%- if request.design_mode -%}
+    <script src="{{ 'theme-editor.js' | asset_url }}" defer></script>
+  {%- endif -%}
+</body>
+</html>

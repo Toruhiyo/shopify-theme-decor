@@ -1,0 +1,81 @@
+{%- comment -%}
+  Mock legacy support chat, a video prop.
+
+  Imitates the bolted-on ticketing widget (Zendesk / Gorgias / Intercom class):
+  canned deflection answers and a "powered by" footer. Nothing here talks to a
+  backend, every reply is scripted in assets/legacy-chat.js.
+
+  Copy stays in the asset rather than the locale files: it is a prop for
+  English-language marketing footage, not store copy shoppers must read.
+{%- endcomment -%}
+
+{%- if settings.legacy_chat_enabled -%}
+  {%- liquid
+    assign brand = settings.legacy_chat_brand | default: 'Dull Chatbot'
+    assign vendor = settings.legacy_chat_vendor | default: 'Every Chatbot Ever'
+    assign side = settings.legacy_chat_position | default: 'right'
+  -%}
+
+  {%- capture legacy_chat_glyph -%}
+    <svg viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+      <path d="M4 3h20a3 3 0 0 1 3 3v13a3 3 0 0 1-3 3H12l-7.2 4.5.9-4.5H4a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z" fill="currentColor"/>
+      <ellipse cx="10.5" cy="12.2" rx="2.4" ry="3.1" fill="#2f3941"/>
+      <ellipse cx="17.5" cy="12.2" rx="2.4" ry="3.1" fill="#2f3941"/>
+    </svg>
+  {%- endcapture -%}
+
+  <div
+    class="legacy-chat legacy-chat--{{ side }}"
+    data-legacy-chat
+    data-brand="{{ brand | escape }}"
+    hidden
+  >
+    <div class="legacy-chat__window" data-legacy-chat-window hidden>
+      <header class="legacy-chat__header">
+        <span class="legacy-chat__avatar" aria-hidden="true">{{ legacy_chat_glyph }}</span>
+        <span class="legacy-chat__brand">{{ brand }}</span>
+        <button
+          type="button"
+          class="legacy-chat__minimize"
+          data-legacy-chat-close
+          aria-label="Minimize chat"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg>
+        </button>
+      </header>
+
+      <div class="legacy-chat__log" data-legacy-chat-log role="log" aria-live="polite">
+        <div class="legacy-chat__msg legacy-chat__msg--bot">
+          <span class="legacy-chat__avatar" aria-hidden="true">{{ legacy_chat_glyph }}</span>
+          <p class="legacy-chat__bubble">Hello. How can I help you today?</p>
+        </div>
+      </div>
+
+      <div class="legacy-chat__quick" data-legacy-chat-quick></div>
+
+      <form class="legacy-chat__composer" data-legacy-chat-composer>
+        <input
+          type="text"
+          class="legacy-chat__input"
+          data-legacy-chat-input
+          placeholder="Type your message here&hellip;"
+          autocomplete="off"
+          aria-label="Type your message"
+        >
+        <button type="submit" class="legacy-chat__send">Send</button>
+      </form>
+
+      <p class="legacy-chat__powered">Powered by {{ vendor }}</p>
+    </div>
+
+    <button
+      type="button"
+      class="legacy-chat__launcher"
+      data-legacy-chat-toggle
+      aria-expanded="false"
+      aria-label="Chat with us"
+    >
+      {{ legacy_chat_glyph }}
+    </button>
+  </div>
+{%- endif -%}

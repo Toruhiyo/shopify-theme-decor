@@ -1,0 +1,40 @@
+/* Ad colour tokens. The only hex in the ad styles. */
+@property --ad-warmth {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+html.is-promo-opening,
+.promo-opening {
+  --bizmis-primary: var(--bizmis-orange);
+}
+
+html.is-promo-opening,
+html.is-promo-cover,
+.promo-opening {
+  --bizmis-primary-glow: color-mix(in srgb, var(--bizmis-primary) 12%, transparent);
+  --bizmis-primary-ring: color-mix(in srgb, var(--bizmis-primary) 60%, transparent);
+  --ad-white: #FFFFFF;
+  --ad-photo: #F7F3EE;
+  --ad-field: color-mix(in oklab, #FFFFFF, #FCFBFA calc(var(--ad-warmth) * 100%));
+  --ad-surface: color-mix(in oklab, #F6F6F6, #F6F4F1 calc(var(--ad-warmth) * 100%));
+  --ad-line: color-mix(in oklab, #E6E6E6, #E8E5E0 calc(var(--ad-warmth) * 100%));
+  --ad-line-strong: color-mix(in oklab, #D6D6D6, #D9D4CD calc(var(--ad-warmth) * 100%));
+  --ad-ink: #1F1D1A;
+  --ad-ink-2: color-mix(in oklab, #595959, #5C5851 calc(var(--ad-warmth) * 100%));
+  --ad-ink-3: color-mix(in oklab, #969696, #9A948B calc(var(--ad-warmth) * 100%));
+  --ad-shadow: rgba(30, 26, 20, 0.08);
+  --ad-red: #E5533D;
+  --bot-surface: #EEF0F3;
+  --bot-line: #D8DCE2;
+  --bot-ink: #4A5160;
+}
+
+html.is-promo-opening {
+  --ad-warmth: 0;
+}
+
+html.is-promo-opening.is-promo-pitch {
+  --ad-warmth: 1;
+}
