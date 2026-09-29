@@ -1163,8 +1163,8 @@ textarea.input {
 }
 
 .header__logo img {
-  height: 32px;
-  width: auto;
+  height: 40px;
+  width: 40px;
   object-fit: contain;
 }
 
@@ -1180,7 +1180,8 @@ textarea.input {
 
   .header__logo-img--initial {
     display: block;
-    height: 28px;
+    height: 36px;
+    width: 36px;
   }
 }
 
