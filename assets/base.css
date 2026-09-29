@@ -100,8 +100,9 @@ html.is-promo-greyscale {
 }
 
 .loader__logo {
-  width: clamp(100px, 14vw, 160px);
-  height: auto;
+  width: clamp(88px, 12vw, 120px);
+  height: clamp(88px, 12vw, 120px);
+  object-fit: contain;
   animation: loader-breathe 4s ease-in-out infinite;
 }
 
@@ -1839,14 +1840,6 @@ textarea.input {
   --promo-height: 2.75rem;
 }
 
-/* Temporary: with the Bizmis top bar off, inset the whole homepage
-   frame 28px. Do not pad the body: that only drops the nav and leaks
-   the red cover through the gap. */
-html:not(:has(.has-promo-bar)),
-body:not(.has-promo-bar) {
-  --promo-height: 28px;
-}
-
 .announcement-bar-section:not(:has(.promo-bar, .announcement-bar)) {
   display: none;
 }
@@ -2226,15 +2219,6 @@ body:not(.has-promo-bar) {
 .template-index .hero,
 .template-index .hero--large {
   min-height: 100dvh;
-}
-
-body:not(.has-promo-bar).template-index .hero-section {
-  margin-top: 28px;
-}
-
-body:not(.has-promo-bar).template-index .hero,
-body:not(.has-promo-bar).template-index .hero--large {
-  min-height: calc(100dvh - 28px);
 }
 
 /* Light scrim under the floating transparent header, and a linen wash
@@ -4126,8 +4110,8 @@ body.is-promo-greyscale .hero__media video {
 }
 
 .footer__logo img {
-  height: 36px;
-  width: auto;
+  height: 48px;
+  width: 48px;
   object-fit: contain;
 }
 

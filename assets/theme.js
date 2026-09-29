@@ -8565,8 +8565,8 @@
   function initPromoBar() {
     const bar = document.querySelector('.promo-bar');
     if (!bar) {
-      document.documentElement.style.setProperty('--promo-height', '28px');
-      document.body.style.setProperty('--promo-height', '28px');
+      document.documentElement.style.setProperty('--promo-height', '0px');
+      document.body.style.setProperty('--promo-height', '0px');
       return;
     }
     const apply = () => document.body.style.setProperty('--promo-height', `${bar.offsetHeight}px`);

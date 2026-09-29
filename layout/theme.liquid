@@ -33,7 +33,6 @@
         try { sessionStorage.removeItem('bizmis-session'); } catch (e) {}
         try { localStorage.removeItem('bizmis-session'); } catch (e) {}
       }
-      if (!{{ has_promo_bar | json }}) root.style.setProperty('--promo-height', '28px');
     })();
   </script>
   <style>html.is-promo-opening{background:var(--color-bg)}html.is-promo-cover{background:{{ promo_accent }}}</style>
@@ -264,7 +263,7 @@
       </div>
     </div>
     <div class="promo-opening__store-logo" aria-hidden="true">
-      <img src="{{ 'logo-white.svg' | asset_url }}" alt="" class="promo-mark" width="560" height="72">
+      <img src="{{ 'logo-mark.png' | asset_url }}" alt="" class="promo-mark" width="160" height="160">
     </div>
     <div class="promo-scale" data-promo-scale hidden aria-hidden="true" data-promo-wall-webm="{{ 'promo-pain-wall.webm' | asset_url }}" data-promo-wall-mp4="{{ 'promo-pain-wall.mp4' | asset_url }}">
       <div class="promo-scale__wall" data-promo-scale-wall></div>
@@ -299,8 +298,8 @@
         "accent": {{ promo_accent | json }},
         "hero": {{ 'promo-home-buildright.png' | asset_url | json }},
         "model": "https://cdn.bizmis.ai/common/avatars/models/will.glb",
-        "logo": {{ 'logo-transparent.svg' | asset_url | json }},
-        "stamp": {{ 'logo-initial.svg' | asset_url | json }},
+        "logo": {{ 'logo-mark.png' | asset_url | json }},
+        "stamp": {{ 'logo-mark.png' | asset_url | json }},
         "stampScale": 0.86,
         "meshColors": { "UPPERBODY_Top": {{ promo_accent | json }}, "HEAD_Hat": {{ promo_accent | json }} }
       },
@@ -365,13 +364,13 @@
 
   <div class="promo-cover" id="promo-cover" data-promo-cover aria-hidden="true">
     <div class="promo-cover__lockup">
-      <img src="{{ 'logo-mono.svg' | asset_url }}" alt="" class="promo-mark" width="560" height="72">
+      <img src="{{ 'logo-mark.png' | asset_url }}" alt="" class="promo-mark" width="160" height="160">
       <p class="promo-cover__subtitle">Home Decor</p>
     </div>
   </div>
 
   <div class="loader" id="page-loader" aria-hidden="true">
-    <img src="{{ 'logo-mono.svg' | asset_url }}" alt="{{ shop.name }}" class="loader__logo" width="160" height="40">
+    <img src="{{ 'logo-mark.png' | asset_url }}" alt="{{ shop.name }}" class="loader__logo" width="120" height="120">
   </div>
   <script>window.addEventListener('load',function(){var l=document.getElementById('page-loader');if(l){l.classList.add('is-hidden');l.addEventListener('transitionend',function(){l.remove()})}})</script>
 

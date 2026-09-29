@@ -5183,8 +5183,10 @@ html.is-promo-cover .promo-cover,
   gap: 0.7rem;
 }
 
-.promo-cover .promo-mark {
-  display: block;
+.promo-cover .promo-mark,
+.promo-opening__store-logo .promo-mark {
+  width: min(160px, 28vw);
+  height: auto;
 }
 
 .promo-cover__subtitle {
